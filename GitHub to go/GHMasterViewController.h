@@ -13,5 +13,6 @@
 @interface GHMasterViewController : UITableViewController
 
 @property (strong, nonatomic) GHDetailViewController *detailViewController;
+@property NSArray *searchResults;
 
 @end

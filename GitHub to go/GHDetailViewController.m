@@ -22,8 +22,6 @@
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
-        // Update the view.
         [self configureView];
     }
 
@@ -34,7 +32,6 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
     if (self.detailItem)
     {
         NSString *htmlURLString = _detailItem[@"html_url"];

@@ -24,6 +24,7 @@
 		0771BFF01896CFD80046E12B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0771BFEE1896CFD80046E12B /* InfoPlist.strings */; };
 		0771BFF21896CFD80046E12B /* GitHub_to_goTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0771BFF11896CFD80046E12B /* GitHub_to_goTests.m */; };
 		0771BFFD1896D31A0046E12B /* GHRepoSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0771BFFC1896D31A0046E12B /* GHRepoSearch.m */; };
+		0771C000189708F00046E12B /* GHiPhoneMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0771BFFF189708F00046E12B /* GHiPhoneMasterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		0771BFF11896CFD80046E12B /* GitHub_to_goTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHub_to_goTests.m; sourceTree = "<group>"; };
 		0771BFFB1896D31A0046E12B /* GHRepoSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRepoSearch.h; sourceTree = "<group>"; };
 		0771BFFC1896D31A0046E12B /* GHRepoSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRepoSearch.m; sourceTree = "<group>"; };
+		0771BFFE189708F00046E12B /* GHiPhoneMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHiPhoneMasterViewController.h; sourceTree = "<group>"; };
+		0771BFFF189708F00046E12B /* GHiPhoneMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHiPhoneMasterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				0771BFD51896CFD70046E12B /* Main_iPad.storyboard */,
 				0771BFD81896CFD70046E12B /* GHMasterViewController.h */,
 				0771BFD91896CFD70046E12B /* GHMasterViewController.m */,
+				0771BFFE189708F00046E12B /* GHiPhoneMasterViewController.h */,
+				0771BFFF189708F00046E12B /* GHiPhoneMasterViewController.m */,
 				0771BFFB1896D31A0046E12B /* GHRepoSearch.h */,
 				0771BFFC1896D31A0046E12B /* GHRepoSearch.m */,
 				0771BFDB1896CFD70046E12B /* GHDetailViewController.h */,
@@ -268,6 +273,7 @@
 				0771BFCD1896CFD70046E12B /* main.m in Sources */,
 				0771BFD11896CFD70046E12B /* GHAppDelegate.m in Sources */,
 				0771BFDA1896CFD70046E12B /* GHMasterViewController.m in Sources */,
+				0771C000189708F00046E12B /* GHiPhoneMasterViewController.m in Sources */,
 				0771BFFD1896D31A0046E12B /* GHRepoSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

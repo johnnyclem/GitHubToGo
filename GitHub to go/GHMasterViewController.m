@@ -13,7 +13,6 @@
 @interface GHMasterViewController () {
     NSMutableArray *_objects;
 }
-@property NSArray *searchResults;
 
 @end
 
