@@ -23,6 +23,7 @@
 		0771BFE81896CFD80046E12B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BFC41896CFD70046E12B /* UIKit.framework */; };
 		0771BFF01896CFD80046E12B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0771BFEE1896CFD80046E12B /* InfoPlist.strings */; };
 		0771BFF21896CFD80046E12B /* GitHub_to_goTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0771BFF11896CFD80046E12B /* GitHub_to_goTests.m */; };
+		0771BFFD1896D31A0046E12B /* GHRepoSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0771BFFC1896D31A0046E12B /* GHRepoSearch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		0771BFED1896CFD80046E12B /* GitHub to goTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitHub to goTests-Info.plist"; sourceTree = "<group>"; };
 		0771BFEF1896CFD80046E12B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0771BFF11896CFD80046E12B /* GitHub_to_goTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHub_to_goTests.m; sourceTree = "<group>"; };
+		0771BFFB1896D31A0046E12B /* GHRepoSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRepoSearch.h; sourceTree = "<group>"; };
+		0771BFFC1896D31A0046E12B /* GHRepoSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRepoSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				0771BFD51896CFD70046E12B /* Main_iPad.storyboard */,
 				0771BFD81896CFD70046E12B /* GHMasterViewController.h */,
 				0771BFD91896CFD70046E12B /* GHMasterViewController.m */,
+				0771BFFB1896D31A0046E12B /* GHRepoSearch.h */,
+				0771BFFC1896D31A0046E12B /* GHRepoSearch.m */,
 				0771BFDB1896CFD70046E12B /* GHDetailViewController.h */,
 				0771BFDC1896CFD70046E12B /* GHDetailViewController.m */,
 				0771BFDE1896CFD70046E12B /* Images.xcassets */,
@@ -263,6 +268,7 @@
 				0771BFCD1896CFD70046E12B /* main.m in Sources */,
 				0771BFD11896CFD70046E12B /* GHAppDelegate.m in Sources */,
 				0771BFDA1896CFD70046E12B /* GHMasterViewController.m in Sources */,
+				0771BFFD1896D31A0046E12B /* GHRepoSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
