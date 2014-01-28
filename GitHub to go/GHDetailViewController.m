@@ -9,7 +9,6 @@
 #import "GHDetailViewController.h"
 
 @interface GHDetailViewController ()
-@property (strong, nonatomic) IBOutlet UIWebView *detailWebView;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
@@ -34,6 +33,7 @@
 {
     if (self.detailItem)
     {
+        NSLog(@"%@",_detailItem[@"html_url"]);
         NSString *htmlURLString = _detailItem[@"html_url"];
         [_detailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:htmlURLString]]];
     }

@@ -11,6 +11,7 @@
 @interface GHDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) IBOutlet UIWebView *detailWebView;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

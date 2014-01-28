@@ -29,7 +29,7 @@
     self.GHTable.dataSource = self;
     
     //Builds the detail views on top of the list of GitHub repos
-    self.detailViewController = [[GHDetailViewController alloc] init];
+    self.detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"iphonewebview"];
     [self addChildViewController:self.detailViewController];
     self.detailViewController.view.frame = self.view.frame;
     [self.view addSubview:self.detailViewController.view];
