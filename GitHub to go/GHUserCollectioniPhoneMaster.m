@@ -9,11 +9,14 @@
 #import "GHUserCollectioniPhoneMaster.h"
 #import "GHDetailViewController.h"
 #import "GHRepoSearch.h"
+#import "GHSearchedUserCell.h"
 
 @interface GHUserCollectioniPhoneMaster ()
 @property (nonatomic) UIPanGestureRecognizer *panner;
 @property (nonatomic) GHDetailViewController *detailViewController;
 @property (nonatomic) NSArray *searchResults;
+@property (nonatomic) NSArray *userArray;
+@property (nonatomic) NSOperationQueue *downloadQueue;
 
 @end
 
@@ -22,9 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.searchResults = [[GHRepoSearch sharedController] reposForSearchString:@"ios"];
+    self.searchResults = [[GHRepoSearch sharedController] searchForUser:@"bob"];
+    self.userArray = [self createUsersFromArray:self.searchResults];
     self.userCollection.delegate = self;
     self.userCollection.dataSource = self;
+    self.downloadQueue = [NSOperationQueue new];
     
     
     //Eventually, this and everything in the Pan Gesture setup will be transferred out into a subclass, but I'm too preoccupied with other tasks right now to do that right away.
@@ -45,10 +50,29 @@
     [self.detailViewController.view.layer setShadowColor:[UIColor blackColor].CGColor];
 }
 
+-(NSArray *) createUsersFromArray:(NSArray *)searchArray
+{
+    NSMutableArray *usersArray = [NSMutableArray new];
+    for (NSDictionary *dictionary in searchArray)
+    {
+        GHGitUser *user = [GHGitUser new];
+        user.name = dictionary[@"login"];
+        user.imageURL = dictionary[@"avatar_url"];
+        
+        [usersArray addObject:user];
+    }
+    return usersArray;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)userSearchButton:(id)sender
+{
+    
 }
 
 #pragma mark -Pan gesture setup
@@ -139,4 +163,26 @@
     }];
 }
 
+#pragma mark -Collection View setup
+
+-(GHSearchedUserCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GHSearchedUserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    cell.user = [self.userArray objectAtIndex:indexPath.row];
+    cell.user.downloadQueue = self.downloadQueue;
+    
+    [cell initializeDisplay];
+    return cell;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.userArray.count;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.detailViewController.detailItem = self.searchResults[indexPath.row];
+}
 @end

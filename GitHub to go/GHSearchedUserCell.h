@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GHGitUser.h"
 
 @interface GHSearchedUserCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *avatarView;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) GHGitUser *user;
+
+-(void)initializeDisplay;
 
 @end

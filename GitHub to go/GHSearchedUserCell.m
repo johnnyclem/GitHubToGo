@@ -10,13 +10,24 @@
 
 @implementation GHSearchedUserCell
 
-- (id)initWithFrame:(CGRect)frame
+-(void)initializeDisplay
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    self.userName.text = self.user.name;
+    
+    if (self.user.avatar)
+    {
+        self.avatarView.image = self.user.avatar;
     }
-    return self;
+    else
+    {
+        if (!self.user.isDownloading)
+        {
+            [self.user initializeImage];
+            self.backgroundColor = [UIColor purpleColor];
+        }
+    }
+    
+    [self.user initializeImage];
 }
 
 @end

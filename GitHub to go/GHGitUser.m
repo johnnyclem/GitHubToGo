@@ -10,12 +10,13 @@
 
 @implementation GHGitUser
 
--(void)setImageURL:(NSString *)imageURL
+-(void)initializeImage
 {
-    _imageURL = imageURL;
-    
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
-    _userImage = [UIImage imageWithData:imageData];
+    self.isDownloading = TRUE;
+    [self.downloadQueue addOperationWithBlock:^void{
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
+    self.avatar = [UIImage imageWithData:imageData];
+    }];
 }
 
 @end

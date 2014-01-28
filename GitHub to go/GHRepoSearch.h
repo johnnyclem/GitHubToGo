@@ -10,6 +10,7 @@
 
 @interface GHRepoSearch : NSObject
 - (NSArray *)reposForSearchString: (NSString *)searchString;
+-(NSArray *) searchForUser:(NSString *)searchString;
 +(GHRepoSearch *)sharedController;
 
 @end

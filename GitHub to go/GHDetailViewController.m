@@ -33,9 +33,9 @@
 {
     if (self.detailItem)
     {
-        NSLog(@"%@",_detailItem[@"html_url"]);
-        NSString *htmlURLString = _detailItem[@"html_url"];
-        [_detailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:htmlURLString]]];
+        NSLog(@"%@", self.detailItem[@"html_url"]);
+        NSString *htmlURLString = self.detailItem[@"html_url"];
+        [self.detailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:htmlURLString]]];
     }
 }
 

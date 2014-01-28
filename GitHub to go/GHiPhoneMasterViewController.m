@@ -53,6 +53,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)searchButton:(id)sender
+{
+    
+}
+
 #pragma mark -Pan gesture setup
 
 -(void) setUpPanGesture

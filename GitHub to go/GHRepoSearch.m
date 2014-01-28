@@ -49,22 +49,8 @@
                                                                        error:&error];
     
     NSArray *searchArray = searchDictionary[@"items"];
-    NSArray *usersArray = [self createUsersFromArray:searchArray];
-    return usersArray;
+    return searchArray;
 }
 
--(NSArray *) createUsersFromArray:(NSArray *)searchArray
-{
-    NSMutableArray *usersArray = [NSMutableArray new];
-    for (NSDictionary *dictionary in searchArray)
-    {
-        GHGitUser *user = [GHGitUser new];
-        user.name = dictionary[@"login"];
-        user.imageURL = dictionary[@"avatar_url"];
-        
-        [usersArray addObject:user];
-    }
-    return usersArray;
-}
 
 @end
