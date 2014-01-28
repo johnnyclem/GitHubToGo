@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07163624189829EA00E0CF8E /* GHSearchedUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07163623189829EA00E0CF8E /* GHSearchedUserCell.m */; };
+		0716362A18982B5400E0CF8E /* GHGitUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0716362918982B5400E0CF8E /* GHGitUser.m */; };
+		0716362D1898521E00E0CF8E /* GHUserCollectioniPhoneMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 0716362C1898521E00E0CF8E /* GHUserCollectioniPhoneMaster.m */; };
 		0771BFC11896CFD70046E12B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BFC01896CFD70046E12B /* Foundation.framework */; };
 		0771BFC31896CFD70046E12B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BFC21896CFD70046E12B /* CoreGraphics.framework */; };
 		0771BFC51896CFD70046E12B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BFC41896CFD70046E12B /* UIKit.framework */; };
@@ -38,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07163622189829EA00E0CF8E /* GHSearchedUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHSearchedUserCell.h; sourceTree = "<group>"; };
+		07163623189829EA00E0CF8E /* GHSearchedUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHSearchedUserCell.m; sourceTree = "<group>"; };
+		0716362818982B5400E0CF8E /* GHGitUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHGitUser.h; sourceTree = "<group>"; };
+		0716362918982B5400E0CF8E /* GHGitUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHGitUser.m; sourceTree = "<group>"; };
+		0716362B1898521E00E0CF8E /* GHUserCollectioniPhoneMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUserCollectioniPhoneMaster.h; sourceTree = "<group>"; };
+		0716362C1898521E00E0CF8E /* GHUserCollectioniPhoneMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUserCollectioniPhoneMaster.m; sourceTree = "<group>"; };
 		0771BFBD1896CFD70046E12B /* GitHub to go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub to go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0771BFC01896CFD70046E12B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0771BFC21896CFD70046E12B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,6 +140,12 @@
 				0771BFD91896CFD70046E12B /* GHMasterViewController.m */,
 				0771BFFE189708F00046E12B /* GHiPhoneMasterViewController.h */,
 				0771BFFF189708F00046E12B /* GHiPhoneMasterViewController.m */,
+				0716362B1898521E00E0CF8E /* GHUserCollectioniPhoneMaster.h */,
+				0716362C1898521E00E0CF8E /* GHUserCollectioniPhoneMaster.m */,
+				07163622189829EA00E0CF8E /* GHSearchedUserCell.h */,
+				07163623189829EA00E0CF8E /* GHSearchedUserCell.m */,
+				0716362818982B5400E0CF8E /* GHGitUser.h */,
+				0716362918982B5400E0CF8E /* GHGitUser.m */,
 				0771BFFB1896D31A0046E12B /* GHRepoSearch.h */,
 				0771BFFC1896D31A0046E12B /* GHRepoSearch.m */,
 				0771BFDB1896CFD70046E12B /* GHDetailViewController.h */,
@@ -269,10 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0716362A18982B5400E0CF8E /* GHGitUser.m in Sources */,
+				0716362D1898521E00E0CF8E /* GHUserCollectioniPhoneMaster.m in Sources */,
 				0771BFDD1896CFD70046E12B /* GHDetailViewController.m in Sources */,
 				0771BFCD1896CFD70046E12B /* main.m in Sources */,
 				0771BFD11896CFD70046E12B /* GHAppDelegate.m in Sources */,
 				0771BFDA1896CFD70046E12B /* GHMasterViewController.m in Sources */,
+				07163624189829EA00E0CF8E /* GHSearchedUserCell.m in Sources */,
 				0771C000189708F00046E12B /* GHiPhoneMasterViewController.m in Sources */,
 				0771BFFD1896D31A0046E12B /* GHRepoSearch.m in Sources */,
 			);
@@ -493,6 +511,7 @@
 				0771BFF71896CFD80046E12B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0771BFF81896CFD80046E12B /* Build configuration list for PBXNativeTarget "GitHub to goTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +520,7 @@
 				0771BFFA1896CFD80046E12B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

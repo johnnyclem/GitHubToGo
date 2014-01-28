@@ -54,7 +54,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svk-mM-b8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="437" y="64"/>
+            <point key="canvasLocation" x="413" y="-198"/>
+        </scene>
+        <!--User Collectioni Phone Master-->
+        <scene sceneID="fNa-Ej-BSM">
+            <objects>
+                <viewController id="htk-7T-2iI" customClass="GHUserCollectioniPhoneMaster" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ehY-ej-mdX"/>
+                        <viewControllerLayoutGuide type="bottom" id="We1-T3-WhT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vkU-d3-fHu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VMB-El-R6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413" y="482"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="Cn3-H9-jdl">
@@ -72,7 +90,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="64"/>
+            <point key="canvasLocation" x="812" y="-198"/>
+        </scene>
+        <!--Detail View Controller - Detail-->
+        <scene sceneID="Nv0-MQ-akM">
+            <objects>
+                <viewController storyboardIdentifier="iphonewebview" title="Detail" id="YJH-oo-jFh" customClass="GHDetailViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="wIG-OI-cjF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                    <navigationItem key="navigationItem" title="Detail" id="ox8-ms-C6Q"/>
+                    <connections>
+                        <outlet property="detailWebView" destination="wIG-OI-cjF" id="f8v-pQ-XRS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLd-Sh-Vy7" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="-198"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

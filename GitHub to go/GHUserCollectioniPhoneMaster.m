@@ -1,32 +1,30 @@
 //
-//  GHiPhoneMasterViewController.m
+//  GHUserCollectioniPhoneMaster.m
 //  GitHub to go
 //
-//  Created by Andrew Rodgers on 1/27/14.
+//  Created by Andrew Rodgers on 1/28/14.
 //  Copyright (c) 2014 Andrew Rodgers. All rights reserved.
 //
 
-#import "GHiPhoneMasterViewController.h"
+#import "GHUserCollectioniPhoneMaster.h"
 #import "GHDetailViewController.h"
 #import "GHRepoSearch.h"
-#import <QuartzCore/QuartzCore.h>
 
-@interface GHiPhoneMasterViewController ()
-
+@interface GHUserCollectioniPhoneMaster ()
 @property (nonatomic) UIPanGestureRecognizer *panner;
 @property (nonatomic) GHDetailViewController *detailViewController;
 @property (nonatomic) NSArray *searchResults;
 
 @end
 
-@implementation GHiPhoneMasterViewController
+@implementation GHUserCollectioniPhoneMaster
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.searchResults = [[GHRepoSearch sharedController] reposForSearchString:@"ios"];
-    self.GHTable.delegate = self;
-    self.GHTable.dataSource = self;
+    self.userCollection.delegate = self;
+    self.userCollection.dataSource = self;
     
     
     //Eventually, this and everything in the Pan Gesture setup will be transferred out into a subclass, but I'm too preoccupied with other tasks right now to do that right away.
@@ -139,29 +137,6 @@
     } completion:^(BOOL finished) {
         [self closeMenu];
     }];
-}
-
-#pragma mark -Table Setup
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.searchResults.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    NSDictionary *repo = self.searchResults[indexPath.row];
-    cell.textLabel.text = [repo objectForKey:@"name"];
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSDictionary *repoDict = self.searchResults[indexPath.row];
-    self.detailViewController.detailItem = repoDict;
-    [self.detailViewController.view setNeedsDisplay];
 }
 
 @end

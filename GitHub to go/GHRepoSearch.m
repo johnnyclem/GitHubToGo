@@ -7,9 +7,13 @@
 //
 
 #import "GHRepoSearch.h"
+#import "GHGitUser.h"
+
+@interface GHRepoSearch()
+
+@end
 
 @implementation GHRepoSearch
-
 
 +(GHRepoSearch *)sharedController
 {
@@ -30,6 +34,37 @@
     NSData *searchData = [NSData dataWithContentsOfURL:searchURL];
     NSDictionary *searchDictionary = [NSJSONSerialization JSONObjectWithData:searchData options:NSJSONReadingMutableContainers error: nil]; //his error said &error, but that gave me an error
     return searchDictionary[@"items"];
+}
+
+-(NSArray *) searchForUser:(NSString *)searchString
+{
+    searchString = [NSString stringWithFormat:@"https://api.github.com/search/users?q=%@", searchString];
+    searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    NSURL *searchURL = [NSURL URLWithString:searchString];
+    NSData *searchData = [NSData dataWithContentsOfURL:searchURL];
+    NSDictionary *searchDictionary = [NSJSONSerialization JSONObjectWithData:searchData
+                                                                     options:NSJSONReadingMutableContainers
+                                                                       error:&error];
+    
+    NSArray *searchArray = searchDictionary[@"items"];
+    NSArray *usersArray = [self createUsersFromArray:searchArray];
+    return usersArray;
+}
+
+-(NSArray *) createUsersFromArray:(NSArray *)searchArray
+{
+    NSMutableArray *usersArray = [NSMutableArray new];
+    for (NSDictionary *dictionary in searchArray)
+    {
+        GHGitUser *user = [GHGitUser new];
+        user.name = dictionary[@"login"];
+        user.imageURL = dictionary[@"avatar_url"];
+        
+        [usersArray addObject:user];
+    }
+    return usersArray;
 }
 
 @end
