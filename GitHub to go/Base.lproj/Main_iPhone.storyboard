@@ -126,7 +126,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="avatarView" destination="ZAv-XV-IdC" id="PWS-mi-Bwd"/>
+                                            <outlet property="avatarView" destination="ZAv-XV-IdC" id="dmD-rA-c9G"/>
                                             <outlet property="userName" destination="dhN-YM-ngk" id="5Sf-cc-qEZ"/>
                                         </connections>
                                     </collectionViewCell>
