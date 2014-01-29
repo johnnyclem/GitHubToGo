@@ -25,7 +25,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.searchResults = [[GHRepoSearch sharedController] searchForUser:@"bob"];
+    @try
+    {
+        self.searchResults = [[GHRepoSearch sharedController] searchForUser:@"bob"];
+    }
+    @catch (NSException *exception)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"GitHub exploded!"
+                                                        message:@"Their shields cannot withstand our bombardment, but we need them alive!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Cease fire"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     self.userArray = [self createUsersFromArray:self.searchResults];
     self.userCollection.delegate = self;
     self.userCollection.dataSource = self;
@@ -40,6 +52,7 @@
     [self.view addSubview:self.detailViewController.view];
     [self.detailViewController didMoveToParentViewController:self];
     self.detailViewController.view.backgroundColor = [UIColor grayColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadFinishedNotification:) name:@"DOWNLOAD_NOTIFICATION" object:nil];
     
     //Sets up a slider menu, so that you can actually get to the list of GitHub repos
     [self setUpPanGesture];
@@ -48,6 +61,7 @@
     [self.detailViewController.view.layer setShadowOpacity:0.8];
     [self.detailViewController.view.layer setShadowOffset:CGSizeMake(-8, -8)];
     [self.detailViewController.view.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self openMenu];
 }
 
 -(NSArray *) createUsersFromArray:(NSArray *)searchArray
@@ -168,21 +182,40 @@
 -(GHSearchedUserCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GHSearchedUserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
+    cell.avatarView.image = nil;
+    //Connects each cell with a user and initializes a background queue for their downloads
     cell.user = [self.userArray objectAtIndex:indexPath.row];
     cell.user.downloadQueue = self.downloadQueue;
     
+    //Sets up the cell display after initializing the downloads
     [cell initializeDisplay];
+    
     return cell;
 }
 
+//Sets the number of cells for the collectionView to be the number of items
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.userArray.count;
 }
 
+//Sets each collectionView item to a corresponding cell
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     self.detailViewController.detailItem = self.searchResults[indexPath.row];
+}
+
+//Reloads the UIImage on the cells when they finish downloading
+- (void)downloadFinishedNotification:(NSNotification *)note
+{
+    id sender = [[note userInfo] objectForKey:@"user"];
+    
+    if ([sender isKindOfClass:[GHGitUser class]])
+    {
+        NSIndexPath *userPath = [NSIndexPath indexPathForItem:[self.userArray indexOfObject:sender] inSection:0];
+        GHSearchedUserCell *cell = [self.userCollection cellForItemAtIndexPath:userPath];
+        cell.user.isDownloading = NO;
+        [self.userCollection reloadItemsAtIndexPaths:@[userPath]];
+    }
 }
 @end

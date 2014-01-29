@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *imageURL;
 @property (strong, nonatomic) UIImage *avatar;
-@property (weak, nonatomic) NSOperationQueue *downloadQueue;
+@property (weak, atomic) NSOperationQueue *downloadQueue;
 @property (nonatomic) BOOL isDownloading;
 
 -(void)initializeImage;

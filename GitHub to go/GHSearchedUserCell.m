@@ -26,8 +26,6 @@
             self.backgroundColor = [UIColor purpleColor];
         }
     }
-    
-    [self.user initializeImage];
 }
 
 @end

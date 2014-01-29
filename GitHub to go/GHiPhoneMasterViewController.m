@@ -28,7 +28,6 @@
     self.GHTable.delegate = self;
     self.GHTable.dataSource = self;
     
-    
     //Eventually, this and everything in the Pan Gesture setup will be transferred out into a subclass, but I'm too preoccupied with other tasks right now to do that right away.
     //Builds the detail views on top of the list of GitHub repos
     self.detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"iphonewebview"];
@@ -45,6 +44,7 @@
     [self.detailViewController.view.layer setShadowOpacity:0.8];
     [self.detailViewController.view.layer setShadowOffset:CGSizeMake(-8, -8)];
     [self.detailViewController.view.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self openMenu];
 }
 
 - (void)didReceiveMemoryWarning

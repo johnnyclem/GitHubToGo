@@ -13,9 +13,19 @@
 -(void)initializeImage
 {
     self.isDownloading = TRUE;
-    [self.downloadQueue addOperationWithBlock:^void{
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
-    self.avatar = [UIImage imageWithData:imageData];
+    if (!self.avatar)
+    {
+        [self.downloadQueue addOperationWithBlock:^void{
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
+            self.avatar = [UIImage imageWithData:imageData];
+        }];
+    }
+
+    [[NSOperationQueue mainQueue] addOperationWithBlock:
+     ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DOWNLOAD_NOTIFICATION"
+                                                            object:nil
+                                                          userInfo:@{@"user": self}];
     }];
 }
 
